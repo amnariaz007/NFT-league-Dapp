@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Real Fantasy Football with Superhero NFT Collectibles and Matic Rewards!">
+  <meta name="author" content="Christopher Cox and Bootstrap contributors">
+  <meta name="ROBOTS" content="INDEX, FOLLOW">
+  <title>Kickshaw</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <meta name="theme-color" content="#7952b3">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="/css/dashboard.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="/css/heroes.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="/css/carousel.css" rel="stylesheet">
+  <!-- Custom icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom icons -->
+  <script src="https://kit.fontawesome.com/34f4625bbc.js" crossorigin="anonymous"></script>
+  <!-- Custom fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Bangers&display=swap');
+  </style>
+</head>
+
+<body class="bg-dark">
+
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="col-md-3 col-lg-2 me-0 px-3" href="https://kickshaw.io"><img src="/images/kickshaw-crypto-fantasy-fototball-logo.png"
+        width="216" height="55" style="margin-top:3px;"></a>
+
+    <div class="navbar-nav" style="padding-right:8px;">
+      <div class="nav-item text-nowrap" style="padding-right:70px;">
+        <button id="btn-connect" onclick="onConnect()" class="nav-link px-3 btn btn-outline-danger">Connect</button>
+        <button id="btn-disconnect" onclick="onDisconnect()" class="nav-link px-3 btn btn-outline-danger"
+          style="display: none;"></button>
+      </div>
+    </div>
+
+    <button class="navbar-toggler position-absolute d-md-none" style="margin-top:8px;" type="button"
+      data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="https://kickshaw.io">
+                      <i class="bi bi-house-door-fill feather"></i> Home
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <strong style="margin-left:19px;">Leagues</strong> 
+                    <ul class="list-unstyled-nav-sub">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/html/platinum.html">
+                            <i class="bi bi-dice-1-fill feather"></i> Platinum
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gold.html">
+                            <i class="bi bi-dice-2-fill feather"></i> Gold
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="silver.html">
+                            <i class="bi bi-dice-3-fill feather"></i> Silver
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="copper.html">
+                            <i class="bi bi-dice-4-fill feather"></i> Copper
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="bronze.html">
+                            <i class="bi bi-dice-5-fill feather"></i> Bronze
+                            </a>
+                        </li>
+                    </ul>
+                        <!-- Active Leagues query (user_id=$user, league_status=0) order (league_id desc)
+        	            Completed Leagues query (user_id=$user, league_status=1) order (league_id desc) -->
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="standings.html">
+                        <i class="bi bi-star-fill feather"></i> Standings <!-- query (league_id=$league_id, score desc, limit 30) order (score desc) paginate leaderboard, sticky $user’s standing/rank -->
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="stats.html">
+                        <i class="bi bi-bar-chart-line-fill feather"></i> Player Stats
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="rules.html">
+                        <i class="bi bi-list-columns-reverse feather"></i> Rules/Scoring
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="rewards.html">
+                        <i class="bi bi-trophy-fill feather"></i> Matic Rewards
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled">
+                        <i class="bi bi-file-text-fill feather"></i> Docs
+                    </a>
+                    <ul class="list-unstyled-nav-sub">
+                        <li class="nav-item">
+                            <a class="nav-link" href="faqs.html">
+                                <i class="bi bi-question-square-fill feather"></i> Help/FAQs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="polygon.html">
+                                <i class="bi bi-info-square-fill feather"></i> Polygon
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="metamask.html">
+                                <i class="bi bi-infinity feather"></i> Metamask
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="walletconnect.html">
+                                <i class="bi bi-infinity feather"></i> WalletConnect
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="whitepaper.html">
+                            <i class="bi bi-emoji-angry-fill feather"></i> Fightpaper
+                            </a>
+                        </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="community.html">
+                        <i class="bi bi-discord feather"></i> Kickshaw Tribe
+                    </a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-dark"> 
+    <div class="flex-wrap hero-page"> <!-- set hero margins, padding and align-items-center for final layout -->
+        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="" aria-current=""></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="" aria-current=""></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item slide1-bg active" data-bs-interval="9200">
+                  <div class="carousel-caption text-start">
+                        <p class="hero-p-text">WELCOME TO OUR UNIVERSE!</p>
+                        <h1 class="hero-title-text">KICKSHAW Pro Fantasy Football</h1>
+                        <p class="hero-p-text">World’s first <i>Real</i> Fantasy Football experience!</p>
+                        <p class="slide-btn-text"><a class="btn btn-outline-bluehero btn-lg px-4" href="#">Learn More</a></p>
+                  </div>
+              </div>
+              
+              <div class="carousel-item slide2-bg" data-bs-interval="9200">
+                  <div class="carousel-caption text-start">
+                        <p class="hero-p-text">RARE DIGITAL ART NFT PLAYER CARDS</p>
+                        <h1 class="hero-title-text">Numbered NFT Collectibles</h1>
+                        <p class="hero-p-text">Fantasy player trading cards you can buy, sell and trade!</p>
+                        <p class="slide-btn-text"><a class="btn btn-outline-bluehero btn-lg px-4" href="#">Learn More</a></p>
+                  </div>
+              </div>
+              
+              <div class="carousel-item slide3-bg" data-bs-interval="9200">
+                  <div class="carousel-caption text-start">
+                    <p class="hero-p-text">CRYPTO FANTASY FOOTBALL</p>
+                    <h1 class="hero-title-text">MATIC Powered</h1>
+                    <p class="hero-p-text">Purchase a deck of Player Cards with Matic to Enter a League!<br><b>Play-to-Earn Matic Rewards!</b></p>
+                    <p class="slide-btn-text"><a class="btn btn-outline-bluehero btn-lg px-4" href="#">Learn More</a></p>
+                  </div>
+              </div>
+              
+            </div>
+        </div>
+        <div class="bg-dark text-center" style="padding:36px 11%;">
+            <h1 class="hero-title-text">Double PPR + Dynamic IDP</h1>
+            <div class="col-lg-hero mx-auto">
+                <p class="mb-4 hero-p-text">Double PPR for all players except WRs(1.5pts).<br><b>Dynamic IDP</b> is a heavily weighted defensive scoring system that makes "IDP Big Play" look like child's play.<br>
+                We have fine tuned our scoring system since 2005.<br>By increasing the potential of defensive scoring to match the offense,<br>we have yielded a far more competetive pool of fantasy franchises.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-outline-bluehero btn-lg px-4">Learn More</button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-dark-2 text-center" style="padding:42px 11%;">
+            <h1 class="hero-title-text">Superflex Offense and Superflex Defense</h1>
+            <div class="col-lg-hero mx-auto">
+                <p class="mb-4 hero-p-text"><b>Wait!!! Whaaah, whaaa, WHAT!?</b><br>
+                You see... wha' ha' happened was, we added a Superflex starter in 2018 and arrived at the inevitable question:<br>
+                <i>Should we add a Defensive Superflex too?</i> It was a resounding YESSSS!!!</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-outline-bluehero btn-lg px-4">Learn More</button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-dark text-center" style="padding:42px 11%;">
+            <h1 class="hero-title-text">139 NFL Player Pool</h1>
+            <div class="col-lg-hero mx-auto">
+                <p class="mb-4 hero-p-text fs-2">Full Season, 33 Man Rosters, 15 Starters</p>
+                <p class="mb-4 hero-p-text">A <em><strong>Player Deck</strong></em> Contains 33 random <em>Player Cards</em> with a full roster of <em>Offense and IDP Defense Starters</em>.
+                Every deck contains a Tier 1 (Projected Top 5) player at each position, a Tier 2 (Projected Top 10) player at each position and a Top NFL Draft Rookie player at each position. In addition to those cards, positions that require more starters include Tier 3 and Tier 4 Player Cards.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-outline-bluehero btn-lg px-4">See the 2022 Players</button>
+                </div>
+            </div>
+        </div>
+        <div class="bg-dark-2 hero1" style="margin:40px 0 0 0 !important;">
+            <div class="mb-4 text-center" style="margin:0 11%;">
+                <h1 class="hero-title-text">BATTLE FOOTBALL</h1>
+                <p class="mb-4 mt-2 hero-p-text">It's not just a <i>Fantasy</i> anymore!</p>
+                <h2 class="hero-title-text">Superheroes & Villians</h2>
+                <p class="mb-4 mt-2 hero-p-text">Buy a deck of player cards to enter a league.<br>You get an NFT collectible trading card for each player in your deck!<br>Including a BONUS Top 3 Rookie Card at every position!</p>
+            </div>
+        </div>
+        <div class="bg-dark-2 text-center" style="padding:36px 11%;">
+            <h1 class="hero-title-text">NFT Collectible Player Cards</h1>
+            <div class="col-lg-hero mx-auto">
+                <p class="mb-4 hero-p-text">Did you know that you can sell your NFT Collector's Cards on the secondary market, but still use them for your team?<br>
+                That's right! Once you purchase a player deck for any league, you gain full access to the league for the entire season,<br>
+                even if you resell your NFT collectibles for profit! You are not required to keep them in your cryptowallet to play Kickshaw Fantasy Football.</p>
+                <p class="mb-4 hero-p-text">Imagine that!<br>Fantasy football with <i>actual</i> fantasy characters.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-outline-bluehero btn-lg px-4">Collect and Play now!</button>
+                </div>
+            </div>
+        </div>
+        <hr class="custom-hr" />
+        <div class="col-lg-hero mx-auto hero2">
+            <div class="text-start">
+                <a href="?mainmenu=bronze"><button class="btn-league btn-bronze"></button></a><img class="mx-5" src="../images/bronze-rewards.png" style="width: 260px;"><br>
+                <ul class="list-unstyled-nav-sub hero-p-text text-bronze">
+                    <li>Deck Price: 35 Matic</li>
+                    <li>Deck Supply: 10,000</li>
+                    <li>Top 50% Earn Matic Rewards!</li>
+                    <li>Max to 1st Place 50K Matic!</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="custom-hr" />
+        <div class="col-lg-hero mx-auto hero3">
+            <div class="text-start">
+                <a href="?mainmenu=copper"><button class="btn-league btn-copper"></button></a><img class="mx-5" src="../images/copper-rewards.png" style="width: 260px;"><br>
+                <ul class="list-unstyled-nav-sub hero-p-text text-copper">
+                    <li>Deck Price: 70 Matic</li>
+                    <li>Deck Supply: 5,000</li>
+                    <li>Top 50% Earn Matic Rewards!</li>
+                    <li>Max to 1st Place 50K Matic!</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="custom-hr" />
+        <div class="col-lg-hero mx-auto hero4">
+            <div class="text-start">
+                <a href="?mainmenu=silver"><button class="btn-league btn-silver"></button></a><img class="mx-5" src="../images/silver-rewards.png" style="width: 260px;"><br>
+                <ul class="list-unstyled-nav-sub hero-p-text text-silver">
+                    <li>Deck Price: 140 Matic</li>
+                    <li>Deck Supply: 2,500</li>
+                    <li>Top 50% Earn Matic Rewards!</li>
+                    <li>Max to 1st Place 50K Matic!</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="custom-hr" />
+        <div class="col-lg-hero mx-auto hero5">
+            <div class="text-start">
+                <a href="?mainmenu=gold"><button class="btn-league btn-gold"></button></a><img class="mx-5" src="../images/gold-rewards.png" style="width: 260px;"><br>
+                <ul class="list-unstyled-nav-sub hero-p-text text-gold">
+                    <li>Deck Price: 280 Matic</li>
+                    <li>Deck Supply: 1,000</li>
+                    <li>Top 50% Earn Matic Rewards!</li>
+                    <li>Max to 1st Place 50K Matic!</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="custom-hr" />
+        <div class="col-lg-hero mx-auto hero6">
+            <div class="text-start">
+                <a href="?mainmenu=platinum"><button class="btn-league btn-platinum"></button></a><img class="mx-5" src="../images/platinum-rewards.png" style="width: 260px;"><br>
+                <ul class="list-unstyled-nav-sub hero-p-text text-platinum">
+                    <li>Deck Price: 560 Matic</li>
+                    <li>Deck Supply: 500</li>
+                    <li>Top 50% Earn Matic Rewards!</li>
+                    <li>Max to 1st Place 50K Matic!</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="custom-hr" />
+    </div>
+</main>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-center text-white mt-5 pt-5">
+    <!-- Copyright -->
+    <div class="fs-footer text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      Copyright ©2022 Kickshaw LLC. <a class="text-white" href="https://kickshaw.io/">Kickshaw.io</a> All Rights
+      Reserved.<br>Privacy Policy - Terms Of Service - Acceptable Use Policy - Powered by: Goalserve and Polygon.<br>
+      Disclaimer: This site is not in any way affiliated with, endorsed or licensed by the National Football League, any
+      NFL team or NFLPA member.<br>&nbsp;<br>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="/js/components/dashboard.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
+  </script>
+  <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js">
+  </script>
+  <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js">
+  </script>
+  <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js">
+  </script>
+  <script type="text/javascript" src="js/index.js">
+  </script>
+</body>
+
+</html>

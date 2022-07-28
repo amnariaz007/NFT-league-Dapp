@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Real Fantasy Football with Superhero NFT Collectibles and Matic Rewards!">
+  <meta name="author" content="Christopher Cox and Bootstrap contributors">
+  <meta name="ROBOTS" content="INDEX, FOLLOW">
+  <title>Kickshaw</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <meta name="theme-color" content="#7952b3">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="/css/dashboard.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="/css/heroes.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="/css/carousel.css" rel="stylesheet">
+  <!-- Custom icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom icons -->
+  <script src="https://kit.fontawesome.com/34f4625bbc.js" crossorigin="anonymous"></script>
+  <!-- Custom fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Bangers&display=swap');
+  </style>
+</head>
+
+<body class="bg-dark">
+
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="col-md-3 col-lg-2 me-0 px-3" href="https://kickshaw.io"><img src="/images/kickshaw-crypto-fantasy-fototball-logo.png"
+        width="216" height="55" style="margin-top:3px;"></a>
+
+    <div class="navbar-nav" style="padding-right:8px;">
+      <div class="nav-item text-nowrap" style="padding-right:70px;">
+        <button id="btn-connect" onclick="onConnect()" class="nav-link px-3 btn btn-outline-danger">Connect</button>
+        <button id="btn-disconnect" onclick="onDisconnect()" class="nav-link px-3 btn btn-outline-danger"
+          style="display: none;"></button>
+      </div>
+    </div>
+
+    <button class="navbar-toggler position-absolute d-md-none" style="margin-top:8px;" type="button"
+      data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="https://kickshaw.io">
+                      <i class="bi bi-house-door-fill feather"></i> Home
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <strong style="margin-left:19px;">Leagues</strong> 
+                    <ul class="list-unstyled-nav-sub">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/html/platinum.html">
+                            <i class="bi bi-dice-1-fill feather"></i> Platinum
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gold.html">
+                            <i class="bi bi-dice-2-fill feather"></i> Gold
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="silver.html">
+                            <i class="bi bi-dice-3-fill feather"></i> Silver
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="copper.html">
+                            <i class="bi bi-dice-4-fill feather"></i> Copper
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="bronze.html">
+                            <i class="bi bi-dice-5-fill feather"></i> Bronze
+                            </a>
+                        </li>
+                    </ul>
+                        <!-- Active Leagues query (user_id=$user, league_status=0) order (league_id desc)
+        	            Completed Leagues query (user_id=$user, league_status=1) order (league_id desc) -->
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="standings.html">
+                        <i class="bi bi-star-fill feather"></i> Standings <!-- query (league_id=$league_id, score desc, limit 30) order (score desc) paginate leaderboard, sticky $user’s standing/rank -->
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="stats.html">
+                        <i class="bi bi-bar-chart-line-fill feather"></i> Player Stats
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="rules.html">
+                        <i class="bi bi-list-columns-reverse feather"></i> Rules/Scoring
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="rewards.html">
+                        <i class="bi bi-trophy-fill feather"></i> Matic Rewards
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled">
+                        <i class="bi bi-file-text-fill feather"></i> Docs
+                    </a>
+                    <ul class="list-unstyled-nav-sub">
+                        <li class="nav-item">
+                            <a class="nav-link" href="faqs.html">
+                                <i class="bi bi-question-square-fill feather"></i> Help/FAQs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="polygon.html">
+                                <i class="bi bi-info-square-fill feather"></i> Polygon
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="metamask.html">
+                                <i class="bi bi-infinity feather"></i> Metamask
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="walletconnect.html">
+                                <i class="bi bi-infinity feather"></i> WalletConnect
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="whitepaper.html">
+                            <i class="bi bi-emoji-angry-fill feather"></i> Fightpaper
+                            </a>
+                        </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="community.html">
+                        <i class="bi bi-discord feather"></i> Kickshaw Tribe
+                    </a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-dark hero-page">
+            <div class="flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="hero-title-text pt-3">2022 Standings</h1>
+                <h3 class="hero-p-text pt-3">Select a League</h3>
+                <div class="col-lg-hero mx-auto">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-outline-bluehero slide-btn-text">Bronze</button>
+                      <button type="button" class="btn btn-outline-bluehero slide-btn-text">Copper</button>
+                      <button type="button" class="btn btn-outline-bluehero slide-btn-text">Silver</button>
+                      <button type="button" class="btn btn-outline-bluehero slide-btn-text">Gold</button>
+                      <button type="button" class="btn btn-outline-bluehero slide-btn-text">Platinum</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+    </div>
+  </div>
+
+  <footer class="bg-dark text-center text-white mt-5 pt-5">
+    <!-- Copyright -->
+    <div class="fs-footer text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      Copyright ©2022 Kickshaw LLC. <a class="text-white" href="https://kickshaw.io/">Kickshaw.io</a> All Rights
+      Reserved.<br>Privacy Policy - Terms Of Service - Acceptable Use Policy - Powered by: Goalserve and Polygon.<br>
+      Disclaimer: This site is not in any way affiliated with, endorsed or licensed by the National Football League, any
+      NFL team or NFLPA member.<br>&nbsp;<br>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="/js/components/dashboard.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
+  </script>
+  <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js">
+  </script>
+  <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js">
+  </script>
+  <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js">
+  </script>
+  <script type="text/javascript" src="js/index.js">
+  </script>
+</body>
+
+</html>
